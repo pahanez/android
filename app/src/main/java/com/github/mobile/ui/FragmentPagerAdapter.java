@@ -15,6 +15,7 @@
  */
 package com.github.mobile.ui;
 
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -44,11 +45,10 @@ public abstract class FragmentPagerAdapter extends
         return selected;
     }
 
-    @Override
+   @Override
     public void setPrimaryItem(final ViewGroup container, final int position,
             final Object object) {
         super.setPrimaryItem(container, position, object);
-
         boolean changed = false;
         if (object instanceof SherlockFragment) {
             changed = object != selected;
