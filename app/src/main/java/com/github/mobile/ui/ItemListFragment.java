@@ -124,8 +124,8 @@ public abstract class ItemListFragment<E> extends DialogFragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        listView = (ListView) view.findViewById(android.R.id.list);
+        listView = finder.find(android.R.id.list);
+//        listView = (ListView) view.findViewById(android.R.id.list);
         listView.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -143,9 +143,11 @@ public abstract class ItemListFragment<E> extends DialogFragment implements
                         id);
             }
         });
-        progressBar = (ProgressBar) view.findViewById(id.pb_loading);
+        progressBar = finder.find(id.pb_loading);
+//        progressBar = (ProgressBar) view.findViewById(id.pb_loading);
 
-        emptyView = (TextView) view.findViewById(android.R.id.empty);
+        emptyView = finder.find(android.R.id.empty);
+        //emptyView = (TextView) view.findViewById(android.R.id.empty);
 
         configureList(getActivity(), getListView());
     }
